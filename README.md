@@ -51,7 +51,18 @@ border-radius:10px;font-size:13px;display:none
 position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;
 padding:15px;border-radius:50%;text-decoration:none;font-size:22px
 }
-
+.instagram-float{
+position:fixed;
+bottom:90px; /* fica acima do WhatsApp */
+right:20px;
+background:#E1306C;
+color:#fff;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:22px;
+}
+  
 @keyframes flutuar{
 0%{transform:translateY(0)}
 50%{transform:translateY(-10px)}
@@ -195,6 +206,9 @@ style="width:220px;border-radius:20px;animation: brilho 2s infinite;">
 <div class="footer">© Cineplay TV</div>
 
 <a class="whatsapp-float" href="https://wa.me/5582996062108">💬</a>
+<a class="instagram-float" href="https://www.instagram.com/cineplayofc64" target="_blank">
+📸
+</a>
 
 <div class="popup" id="popup"></div>
 
