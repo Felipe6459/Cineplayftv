@@ -93,7 +93,7 @@ font-size:22px;
 <div class="banner">
 <div class="overlay">
 
-<h1>🎬 Cineplay TV</h1>
+<img src="https://i.postimg.cc/mgFVtXc9/1000389745-removebg-preview.png" style="width:180px;">
 
 <h2 style="color:#ff4444;">
 🔥 Cancele Netflix, Prime e outros e pague muito mais barato
