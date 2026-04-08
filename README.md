@@ -192,6 +192,26 @@ style="width:220px;border-radius:20px;animation: brilho 2s infinite;">
 <a class="btn" href="https://wa.me/5582996062108?text=Quero%20anual%203%20telas">Assinar</a>
 </div>
 
+<div style="background:#111;padding:15px;margin:20px;border-radius:10px;">
+<h3 style="color:#7b2cff;">🎁 Indique e Ganhe</h3>
+
+<p>
+Indique um amigo e ganhe <b style="color:#00ff88;">1 mês grátis</b> no Cineplay TV 🔥
+</p>
+
+<p style="font-size:14px;color:#aaa;">
+Quanto mais indicar, mais meses grátis você ganha!
+</p>
+
+<a class="btn" href="https://wa.me/5582996062108?text=Quero%20indicar%20um%20amigo">
+🚀 INDICAR AGORA
+</a>
+
+<p style="color:#ff4444;font-weight:bold;">
+⚠️ Promoção por tempo limitado
+</p>
+</div>
+
 <h2>📺 Compatibilidade</h2>
 <p>
 📱 Android<br>
