@@ -205,7 +205,7 @@ style="width:220px;border-radius:20px;animation: brilho 2s infinite;">
 <div class="footer">© Cineplay TV</div>
 
 <a class="whatsapp-float" href="https://wa.me/5582996062108">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:35px;height:35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:40px;height:40px;">
 </a>
 <a class="instagram-float" href="https://www.instagram.com/cineplayofc64" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" style="width:40px;height:40px;">
