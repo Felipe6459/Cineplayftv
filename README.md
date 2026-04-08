@@ -108,6 +108,14 @@ font-size:22px;
 🔥 TESTE GRÁTIS AGORA
 </a>
 
+<a class="btn" href="https://aftv.news/1072646">
+<img src="https://i.postimg.cc/63sGqhDZ/file-00000000d004720e80be58868406bf64.png" style="width:22px;vertical-align:middle;margin-right:8px;">
+📲 BAIXAR APLICATIVO
+</a>
+
+<p style="font-size:13px;color:#aaa;">
+⚠️ Use no app Downloader (TV Box / Fire Stick)
+</p>
 <p style="color:#00ff88;font-weight:bold;">
 🚀 Acesso liberado em poucos minutos
 </p>
