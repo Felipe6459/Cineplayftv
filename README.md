@@ -207,7 +207,7 @@ style="width:220px;border-radius:20px;animation: brilho 2s infinite;">
 
 <a class="whatsapp-float" href="https://wa.me/5582996062108">💬</a>
 <a class="instagram-float" href="https://www.instagram.com/cineplayofc64" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" style="width:30px;height:30px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" style="width:40px;height:40px;">
 </a>
 
 <div class="popup" id="popup"></div>
