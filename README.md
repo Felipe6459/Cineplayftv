@@ -93,7 +93,7 @@ font-size:22px;
 <div class="banner">
 <div class="overlay">
 
-<img src="https://i.postimg.cc/mgFVtXc9/1000389745-removebg-preview.png" style="width:180px;">
+<img src="https://i.postimg.cc/8cS7DbFT/1000392886-removebg-preview.png" style="width:180px;background:transparent;">
 
 <h2 style="color:#ff4444;">
 🔥 Cancele Netflix, Prime e outros e pague muito mais barato
