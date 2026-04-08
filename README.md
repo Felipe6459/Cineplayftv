@@ -48,8 +48,10 @@ border-radius:10px;font-size:13px;display:none
 }
 
 .whatsapp-float{
-position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;
-padding:15px;border-radius:50%;text-decoration:none;font-size:22px
+position:fixed;
+bottom:20px;
+right:20px;
+text-decoration:none;
 }
 .instagram-float{
 position:fixed;
