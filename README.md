@@ -55,10 +55,7 @@ padding:15px;border-radius:50%;text-decoration:none;font-size:22px
 position:fixed;
 bottom:90px; /* fica acima do WhatsApp */
 right:20px;
-background:#E1306C;
 color:#fff;
-padding:15px;
-border-radius:50%;
 text-decoration:none;
 font-size:22px;
 }
