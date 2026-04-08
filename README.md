@@ -109,7 +109,7 @@ font-size:22px;
 </a>
 
 <a class="btn" href="https://aftv.news/1072646">
-<img src="https://i.postimg.cc/63sGqhDZ/file-00000000d004720e80be58868406bf64.png" style="width:22px;vertical-align:middle;margin-right:8px;">
+<img src="https://i.postimg.cc/63sGqhDZ/file-00000000d004720e80be58868406bf64.png" style="width:40px;vertical-align:middle;margin-right:8px;">
 📲 BAIXAR APLICATIVO
 </a>
 
