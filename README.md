@@ -104,7 +104,7 @@ font-size:22px;
 ⚡ Sem travar | HD/FULL HD
 </p>
 
-<a class="btn" href="https://wa.me/5582996062108?text=Quero%20teste%20gratis%20agora">
+<a class="btn" href="https://wa.me/5582996062108?text=Oi,%20quero%20um%20teste%20grátis.">
 🔥 TESTE GRÁTIS AGORA
 </a>
 
