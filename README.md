@@ -122,7 +122,7 @@ font-size:22px;
 
 <div style="margin-top:30px;">
 <div style="display:inline-block;background:#111;padding:10px;border-radius:30px;box-shadow:0 0 20px rgba(0,0,0,0.5);animation: flutuar 3s infinite;">
-<img src="https://i.postimg.cc/SsXBVsR2/Screenshot-20260406-193310-IBO-REVENDA.jpg"
+<img src="https://i.postimg.cc/XvWv7FPX/Screenshot-20260509-181339-IBO-REVENDA.jpg"
 style="width:220px;border-radius:20px;animation: brilho 2s infinite;">
 </div>
 </div>
