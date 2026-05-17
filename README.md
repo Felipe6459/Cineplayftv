@@ -162,6 +162,82 @@ style="width:220px;border-radius:20px;animation: brilho 2s infinite;">
 
 <h2>💰 Planos Mensais</h2>
 
+<!-- PROMOÇÃO INDIQUE UM AMIGO -->
+
+<div style="background:#111;padding:20px;border-radius:15px;
+border:2px solid #00ff88;
+box-shadow:0 0 20px rgba(0,255,136,0.3);
+margin:20px auto;
+max-width:350px;">
+
+<h2 style="color:#00ff88;">
+🎉 PROMOÇÃO INDIQUE UM AMIGO 🎉
+</h2>
+
+<p style="font-size:18px;margin-top:15px;line-height:1.7;">
+📺 Ao assinar junto com seu amigo,
+<b>VOCÊS DOIS GANHAM DESCONTO</b> 🔥
+</p>
+
+<p style="font-size:16px;color:#fff;margin-top:10px;">
+💥 Plano de 2 telas por apenas
+<b style="color:#00ff88;">R$35,00</b>
+</p>
+
+<p style="color:#ff4444;
+font-weight:bold;
+margin-top:15px;
+animation:pulsar 1.5s infinite;">
+⚠️ PROMOÇÃO PODE ACABAR A QUALQUER MOMENTO
+</p>
+
+<div style="background:#1a1a1a;
+padding:15px;
+border-radius:12px;
+margin-top:20px;
+text-align:left;">
+
+<h3 style="color:#7b2cff;text-align:center;">
+📌 REGRAS DA PROMOÇÃO
+</h3>
+
+<p style="line-height:1.8;
+font-size:14px;
+margin-top:10px;">
+
+✅ Promo válida para novas assinaturas<br>
+
+✅ Os dois precisam ativar juntos<br>
+
+✅ Valor promocional exclusivo para 2 telas<br>
+
+✅ Oferta por tempo limitado<br>
+
+✅ Liberação rápida após pagamento<br>
+
+✅ Suporte disponível via WhatsApp
+
+</p>
+
+</div>
+
+<a class="btn"
+href="https://wa.me/5582996062108?text=Quero%20a%20promoção%20de%202%20telas%20com%20meu%20amigo">
+
+🔥 GARANTIR PROMOÇÃO
+
+</a>
+
+<p style="font-size:13px;
+color:#aaa;
+margin-top:10px;">
+
+🚀 Aproveite antes que volte ao valor normal
+
+</p>
+
+</div>
+
 <div class="card">
 <h3>1 Tela</h3>
 <div class="price">R$ 24,90</div>
