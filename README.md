@@ -120,6 +120,26 @@ font-size:22px;
 🚀 Acesso liberado em poucos minutos
 </p>
 
+<div style="margin:25px auto;
+max-width:350px;
+border:2px solid #7b2cff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 25px rgba(123,44,255,0.5);">
+
+<iframe
+width="100%"
+height="620"
+src="https://www.youtube.com/embed/K3QLrvM39fw"
+title="Cineplay TV"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen
+style="display:block;">
+</iframe>
+
+</div>
+
 <div style="margin-top:30px;">
 <div style="display:inline-block;background:#111;padding:10px;border-radius:30px;box-shadow:0 0 20px rgba(0,0,0,0.5);animation: flutuar 3s infinite;">
 <img src="https://i.postimg.cc/XvWv7FPX/Screenshot-20260509-181339-IBO-REVENDA.jpg"
