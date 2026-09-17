@@ -52,6 +52,6 @@
     const autoSeconds=Math.max(0,Math.min(3600,Number(cfg.promo_autoclose)||0));
     const auto=autoSeconds?setTimeout(close,autoSeconds*1000):null;
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>startPromotion(window.__cineplaySiteConfig),{once:true});
-  else startPromotion(window.__cineplaySiteConfig);
+  function waitForConfig(){if(window.__cineplaySiteConfig)startPromotion(window.__cineplaySiteConfig);else setTimeout(waitForConfig,100)}
+  waitForConfig();
 })();
