@@ -43,12 +43,7 @@
     document.getElementById('cinePromoClose').onclick=close;
     el.addEventListener('click',e=>{if(e.target===el)close()});
     requestAnimationFrame(()=>el.classList.add('cinePromoOn'));
-    const timer=setInterval(()=>{
-      const left=end-Date.now(), t=document.getElementById('cinePromoTimer');
-      if(left<=0){close();return}
-      const s=Math.floor(left/1000),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),sec=s%60;
-      if(t)t.textContent=String(d).padStart(2,'0')+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(sec).padStart(2,'0')+'s';
-    },250);
+    const updateTimer=()=>{const left=end-Date.now(),t=document.getElementById('cinePromoTimer');if(left<=0){close();return}const total=Math.floor(left/1000),d=Math.floor(total/86400),h=Math.floor(total%86400/3600),m=Math.floor(total%3600/60),sec=total%60;if(t)t.textContent=String(d).padStart(2,'0')+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(sec).padStart(2,'0')+'s'};updateTimer();const timer=setInterval(updateTimer,1000);
     const autoSeconds=Math.max(0,Math.min(3600,Number(cfg.promo_autoclose)||0));
     const auto=autoSeconds?setTimeout(close,autoSeconds*1000):null;
   }
