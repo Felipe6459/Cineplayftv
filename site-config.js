@@ -8,7 +8,7 @@
     if(!cfg.promo_price || !cfg.promo_end) return;
     const now=Date.now(), start=cfg.promo_start?new Date(cfg.promo_start).getTime():0, end=new Date(cfg.promo_end).getTime();
     if(!Number.isFinite(end) || now>end || (start && Number.isFinite(start) && now<start)) return;
-    try{if(sessionStorage.getItem('cineplay_promo_seen')==='1')return}catch(e){}
+    try{if(sessionStorage.getItem('cineplay_promo_seen_v2')==='1')return}catch(e){}
     const delay=Math.max(0,Math.min(3600,Number(cfg.promo_delay)||0))*1000;
     setTimeout(function(){ if(Date.now()>end)return; showPromotion(cfg,end); },delay);
   }
