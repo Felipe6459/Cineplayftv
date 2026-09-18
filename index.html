@@ -27,6 +27,35 @@
 <a class="floating ig" href="https://www.instagram.com/cineplayerpro?stkn=aDd0dDJtZGJsZHph" target="_blank" rel="noopener" aria-label="Instagram">📸</a><a class="floating wa" href="https://wa.me/5582996062108?text=Oi,%20quero%20conhecer%20o%20Cineplay%20TV." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 <script>function copiarPix(){const e=document.getElementById('pixKey');if(!e)return;navigator.clipboard?.writeText(e.textContent.trim()).then(()=>{const b=document.querySelector('.pix button');if(b){const t=b.textContent;b.textContent='✅ CHAVE COPIADA';setTimeout(()=>b.textContent=t,1800)}})}</script>
 <script src="./analytics.js?v=20260917.3"></script>
-<script src="./site-config.js?v=20260917.6"></script>
+<script src="./site-config.js?v=20260917.6"></script><script>
+/* Fallback da promoção: garante a exibição mesmo se o script dinâmico estiver atrasado. */
+(function(){
+  if(window.__cineplayPromoFallback)return;
+  window.__cineplayPromoFallback=true;
+  const S='https://jbdjfmvdrwdfnuhqrprc.supabase.co';
+  const K='sb_publishable_3ABEFAwN_wzmSu13EyVOwQ_h5Xfmz80';
+  const show=function(c){
+    if(window.__cineplayPromoShown)return;
+    if(!c||String(c.promo_active).toLowerCase()!=='true'||!c.promo_end)return;
+    const end=new Date(c.promo_end).getTime();
+    if(!Number.isFinite(end)||Date.now()>end)return;
+    window.__cineplayPromoShown=true;
+    const price=String(c.promo_price||'').replace('.',',');
+    const period={monthly:'Mensal',3months:'3 meses',6months:'6 meses',annual:'1 ano'}[c.promo_period]||'Oferta';
+    const screens=Math.max(1,Math.min(3,Number(c.promo_screens)||1));
+    const wa=String(c.whatsapp||'5582996062108').replace(/\D/g,'');
+    const box=document.createElement('div');
+    box.style.cssText='position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:18px;font-family:Arial;color:#fff';
+    box.innerHTML='<div style="position:relative;width:min(520px,100%);background:#15101f;border:2px solid #9b62ff;border-radius:24px;padding:30px;text-align:center;box-shadow:0 0 60px rgba(123,44,255,.5)"><button id="cineFallbackClose" style="position:absolute;right:10px;top:8px;width:38px;height:38px;border:0;border-radius:50%;background:#292035;color:#fff;font-size:24px">×</button><div style="display:inline-block;background:#7b2cff;padding:7px 13px;border-radius:999px;font-weight:900;font-size:12px">🔥 OFERTA POR TEMPO LIMITADO</div><h2 style="font-size:36px;margin:14px 0 8px">'+(c.promo_title||'Promoção especial')+'</h2><p style="color:#d2cde0">'+(c.promo_text||'Aproveite antes que termine!')+'</p><div style="font-weight:800;margin-top:14px">'+period+' • '+screens+' '+(screens>1?'telas':'tela')+'</div><div style="font-size:44px;font-weight:900;margin:14px 0">'+price+'</div><div id="cineFallbackTimer" style="font-size:22px;font-weight:900;padding:12px;background:#09070d;border-radius:12px">00d 00h 00m 00s</div><a href="https://wa.me/'+wa+'?text='+encodeURIComponent('Quero aproveitar a promoção: '+period+' — '+screens+' '+(screens>1?'telas':'tela')+' por '+price+'.')+'" style="display:block;margin-top:14px;background:#16b968;color:#fff;padding:15px;border-radius:12px;font-weight:900;text-decoration:none">🔥 QUERO APROVEITAR</a></div>';
+    document.body.appendChild(box);
+    const close=()=>box.remove();
+    document.getElementById('cineFallbackClose').onclick=close;
+    const tick=()=>{const left=end-Date.now();if(left<=0){clearInterval(t);close();return}const s=Math.floor(left/1000),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),x=s%60;document.getElementById('cineFallbackTimer').textContent=String(d).padStart(2,'0')+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(x).padStart(2,'0')+'s'};
+    tick();const t=setInterval(tick,1000);setTimeout(close,60000);
+  };
+  const load=()=>fetch(S+'/rest/v1/cineplay_site_settings?id=eq.1&select=content',{headers:{apikey:K,Authorization:'Bearer '+K}}).then(r=>r.json()).then(x=>show(x&&x[0]&&x[0].content)).catch(()=>{});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
+})();
+</script>
 </body>
 </html>
