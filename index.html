@@ -38,7 +38,7 @@
   function start(c){
     if(!c||String(c.promo_active).toLowerCase()!=='true'||!c.promo_end)return;
     const start=c.promo_start?new Date(c.promo_start).getTime():0,end=new Date(c.promo_end).getTime(),now=Date.now();
-    if(!Number.isFinite(end)||now>end||(start&&!Number.isFinite(start)===false&&now<start))return;
+    if(!Number.isFinite(end)||now>end||(start&&Number.isFinite(start)&&now<start))return;
     const price=Number(String(c.promo_price||'').replace(',','.'));
     if(!Number.isFinite(price))return;
     const periodMap={monthly:'Mensal',3months:'3 meses',6months:'6 meses',annual:'1 ano'};
@@ -46,7 +46,7 @@
     const period=periodMap[c.promo_period]||c.promo_period||'Oferta';
     const screens=Math.max(1,Math.min(3,Number(c.promo_screens)||1));
     const base=c.promo_period==='annual'?Number(c['annual_'+screens]):Number(c['monthly_'+screens])*(monthsMap[c.promo_period]||1);
-    const wa=String(c.whatsapp||'5582996062108').replace(/D/g,'');
+    const wa=String(c.whatsapp||'5582996062108').replace(/\\D/g,'');
     const msg=encodeURIComponent('Quero aproveitar a promoção: '+period+' — '+screens+' '+(screens>1?'telas':'tela')+' por '+money(price)+'.');
     const safe=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     const old=document.getElementById('cinePromoOverlay');if(old)old.remove();
