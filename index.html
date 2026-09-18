@@ -14,6 +14,17 @@
 </style>
 </head>
 <body>
+<div id="cineplay-js-test" style="display:none"></div>
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('promo-test')!=='3')return;
+  var el=document.getElementById('cineplay-js-test');
+  if(el){
+    el.style.cssText='position:fixed;inset:0;z-index:2147483647;background:#09070d;color:#fff;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Arial;text-align:center';
+    el.innerHTML='<div style="max-width:520px;background:#171022;border:2px solid #7b2cff;border-radius:20px;padding:28px"><div style="font-size:13px;font-weight:900;color:#c7a8ff">TESTE DE JAVASCRIPT</div><h1 style="margin:12px 0">JavaScript está funcionando</h1><p>O navegador executou o código do Cineplay. Se esta mensagem aparecer, o próximo teste será isolado na leitura da promoção.</p></div>';
+  }
+})();
+</script>
 <div class="topbar">🎁 Teste grátis disponível • Atendimento pelo WhatsApp</div>
 <nav><div class="container nav-inner"><a class="brand" href="#inicio"><img src="https://i.postimg.cc/FHRZCdpf/1000911686-removebg-preview.png" alt="Cineplay TV"><span>Cineplay TV</span></a><div class="nav-links"><a href="#planos">Planos</a><a href="#como-funciona">Como funciona</a><a href="#compatibilidade">Compatibilidade</a><a href="#duvidas">Dúvidas</a></div></div></nav>
 <main>
