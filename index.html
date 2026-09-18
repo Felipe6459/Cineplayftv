@@ -67,8 +67,9 @@
     tick();const t=setInterval(tick,1000);setTimeout(close,60000);
   };
   const load=()=>fetch(S+'/rest/v1/cineplay_site_settings?id=eq.1&select=content',{headers:{apikey:K,Authorization:'Bearer '+K}}).then(r=>r.json()).then(x=>show(x&&x[0]&&x[0].content)).catch(()=>{});
-  /* Executa imediatamente: não depende do DOMContentLoaded nem do site-config.js. */
-  load();
+  /* Executa imediatamente e também no carregamento do DOM, sem depender do site-config.js. */
+  try{load();}catch(e){}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){try{load();}catch(e){}});
 })();
 </script>
 <script src="./analytics.js?v=20260917.3"></script>
