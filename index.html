@@ -28,5 +28,43 @@
 <script>function copiarPix(){const e=document.getElementById('pixKey');if(!e)return;navigator.clipboard?.writeText(e.textContent.trim()).then(()=>{const b=document.querySelector('.pix button');if(b){const t=b.textContent;b.textContent='✅ CHAVE COPIADA';setTimeout(()=>b.textContent=t,1800)}})}</script>
 <script src="./analytics.js?v=20260917.3"></script>
 <script src="./site-config.js?v=20260916.5"></script>
+<script>
+/* Promoção isolada: não altera o carregamento normal do site. */
+(function(){
+  const S='https://jbdjfmvdrwdfnuhqrprc.supabase.co';
+  const K='sb_publishable_3ABEFAwN_wzmSu13EyVOwQ_h5Xfmz80';
+  let timer=null,auto=null;
+  function money(v){const n=Number(String(v??'').replace(',','.'));return Number.isFinite(n)?n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}):String(v??'')}
+  function start(c){
+    if(!c||String(c.promo_active).toLowerCase()!=='true'||!c.promo_end)return;
+    const start=c.promo_start?new Date(c.promo_start).getTime():0,end=new Date(c.promo_end).getTime(),now=Date.now();
+    if(!Number.isFinite(end)||now>end||(start&&!Number.isFinite(start)===false&&now<start))return;
+    const price=Number(String(c.promo_price||'').replace(',','.'));
+    if(!Number.isFinite(price))return;
+    const periodMap={monthly:'Mensal',3months:'3 meses',6months:'6 meses',annual:'1 ano'};
+    const monthsMap={monthly:1,3months:3,6months:6,annual:12};
+    const period=periodMap[c.promo_period]||c.promo_period||'Oferta';
+    const screens=Math.max(1,Math.min(3,Number(c.promo_screens)||1));
+    const base=c.promo_period==='annual'?Number(c['annual_'+screens]):Number(c['monthly_'+screens])*(monthsMap[c.promo_period]||1);
+    const wa=String(c.whatsapp||'5582996062108').replace(/D/g,'');
+    const msg=encodeURIComponent('Quero aproveitar a promoção: '+period+' — '+screens+' '+(screens>1?'telas':'tela')+' por '+money(price)+'.');
+    const safe=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    const old=document.getElementById('cinePromoOverlay');if(old)old.remove();
+    const style=document.createElement('style');style.id='cinePromoStyle';style.textContent='#cinePromoOverlay{position:fixed;inset:0;z-index:99999;background:rgba(3,2,7,.92);display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;transition:opacity .35s ease;backdrop-filter:blur(8px)}#cinePromoOverlay.cinePromoOn{opacity:1}#cinePromoBreak{position:absolute;inset:0;pointer-events:none;overflow:hidden}.cinePromoCrack{position:absolute;left:50%;top:50%;width:3px;height:80vh;background:rgba(255,255,255,.65);transform-origin:top;box-shadow:0 0 10px rgba(255,255,255,.35);opacity:.8}.cinePromoCrack:nth-child(1){transform:rotate(22deg)}.cinePromoCrack:nth-child(2){transform:rotate(68deg)}.cinePromoCrack:nth-child(3){transform:rotate(112deg)}.cinePromoCrack:nth-child(4){transform:rotate(158deg)}.cinePromoShard{position:absolute;width:55px;height:55px;background:rgba(167,139,250,.18);border:1px solid rgba(255,255,255,.18);animation:cineShard 1.15s ease-out forwards;opacity:0}.cinePromoShard:nth-child(5){left:8%;top:18%;animation-delay:.05s}.cinePromoShard:nth-child(6){right:10%;top:24%;animation-delay:.12s}.cinePromoShard:nth-child(7){left:18%;bottom:15%;animation-delay:.16s}.cinePromoShard:nth-child(8){right:17%;bottom:12%;animation-delay:.22s}@keyframes cineShard{0%{opacity:0;transform:translate(0,0) rotate(0) scale(.3)}25%{opacity:1}100%{opacity:0;transform:translate(var(--x,40px),var(--y,150px)) rotate(160deg) scale(.05)}}#cinePromoCard{position:relative;width:min(520px,100%);background:linear-gradient(145deg,#171022,#0d0a14);border:2px solid #9b62ff;border-radius:24px;box-shadow:0 25px 90px rgba(0,0,0,.75),0 0 50px rgba(123,44,255,.3);padding:28px;text-align:center;font-family:Arial,Helvetica,sans-serif;color:#fff;transform:translateY(30px) scale(.92);transition:transform .45s cubic-bezier(.2,.9,.25,1)}#cinePromoOverlay.cinePromoOn #cinePromoCard{transform:translateY(0) scale(1)}#cinePromoClose{position:absolute;right:10px;top:8px;width:38px;height:38px;border:0;border-radius:50%;background:#292035;color:#fff;font-size:24px;cursor:pointer}#cinePromoBadge{display:inline-block;background:#7b2cff;padding:7px 13px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.5px;margin-bottom:12px}#cinePromoCard h2{font-size:clamp(27px,7vw,42px);line-height:1.02;margin:5px 0 10px}#cinePromoCard p{color:#d2cde0;margin:8px 0}#cinePromoPrice{font-size:42px;font-weight:900;margin:14px 0 2px;color:#fff}#cinePromoOld{text-decoration:line-through;color:#888;font-size:14px;min-height:20px}#cinePromoTimer{font-size:24px;font-weight:900;letter-spacing:1px;margin:15px 0;padding:12px;border-radius:12px;background:#0a0810;border:1px solid #3b2b50}#cinePromoButton{display:flex;align-items:center;justify-content:center;background:#16b968;color:#fff;border-radius:12px;padding:14px 18px;font-weight:900;text-decoration:none;margin-top:14px}#cinePromoNote{font-size:11px;color:#888;margin-top:10px}';
+    document.head.appendChild(style);
+    const el=document.createElement('div');el.id='cinePromoOverlay';el.innerHTML='<div id="cinePromoBreak"><i class="cinePromoCrack"></i><i class="cinePromoCrack"></i><i class="cinePromoCrack"></i><i class="cinePromoCrack"></i><i class="cinePromoShard"></i><i class="cinePromoShard"></i><i class="cinePromoShard"></i><i class="cinePromoShard"></i></div><div id="cinePromoCard"><button id="cinePromoClose" aria-label="Fechar">×</button><div id="cinePromoBadge">🔥 OFERTA POR TEMPO LIMITADO</div><h2>'+safe(c.promo_title||'Promoção especial')+'</h2><p>'+safe(c.promo_text||'Aproveite antes que termine!')+'</p><div style="font-weight:800;margin-top:12px">'+safe(period)+' • '+screens+' '+(screens>1?'telas':'tela')+'</div><div id="cinePromoPrice">'+money(price)+'</div><div id="cinePromoOld">'+(base>0?'De '+money(base):'')+'</div><div id="cinePromoTimer">00d 00h 00m 00s</div><a id="cinePromoButton" href="https://wa.me/'+wa+'?text='+msg+'">🔥 QUERO APROVEITAR</a><div id="cinePromoNote">A oferta encerra automaticamente no horário configurado.</div></div>';
+    document.body.appendChild(el);
+    const close=()=>{if(timer)clearInterval(timer);if(auto)clearTimeout(auto);el.style.opacity='0';setTimeout(()=>{el.remove();style.remove()},350)};
+    document.getElementById('cinePromoClose').onclick=close;
+    el.addEventListener('click',e=>{if(e.target===el)close()});
+    requestAnimationFrame(()=>el.classList.add('cinePromoOn'));
+    const update=()=>{const left=end-Date.now(),t=document.getElementById('cinePromoTimer');if(left<=0){close();return}const total=Math.floor(left/1000),d=Math.floor(total/86400),h=Math.floor(total%86400/3600),m=Math.floor(total%3600/60),sec=total%60;if(t)t.textContent=String(d).padStart(2,'0')+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(sec).padStart(2,'0')+'s'};
+    update();timer=setInterval(update,1000);
+    const secs=Math.max(0,Math.min(3600,Number(c.promo_autoclose)||0));if(secs)auto=setTimeout(close,secs*1000);
+  }
+  function load(){fetch(S+'/rest/v1/cineplay_site_settings?id=eq.1&select=content',{headers:{apikey:K,Authorization:'Bearer '+K},cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('promo config');return r.json()}).then(x=>start(x?.[0]?.content)).catch(()=>{})}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();
+})();
+</script>
 </body>
 </html>
