@@ -32,7 +32,7 @@
 /* Promoção isolada: não altera o carregamento normal do site. */
 (function(){
   const S='https://jbdjfmvdrwdfnuhqrprc.supabase.co';
-  const K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpiZGpmbXZkcndkZm51aHFycHJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1MTE3MzEsImV4cCI6MjEwMzA4NzczMX0.yofxMaRrQJkP7g9E8ML5vVbHPL51hrnbiTb42g396F8';
+  const K='sb_publishable_3ABEFAwN_wzmSu13EyVOwQ_h5Xfmz80';
   let timer=null,auto=null;
   function money(v){const n=Number(String(v??'').replace(',','.'));return Number.isFinite(n)?n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}):String(v??'')}
   function start(c){
@@ -62,7 +62,7 @@
     update();timer=setInterval(update,1000);
     const secs=Math.max(0,Math.min(3600,Number(c.promo_autoclose)||0));if(secs)auto=setTimeout(close,secs*1000);
   }
-  function load(){fetch(S+'/rest/v1/cineplay_site_settings?id=eq.1&select=content',{headers:{apikey:K,Authorization:'Bearer '+K},cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('promo config');return r.json()}).then(x=>start(x?.[0]?.content)).catch(()=>{})}
+  function load(){fetch(S+'/rest/v1/cineplay_site_settings?id=eq.1&select=content',{headers:{apikey:K},cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('promo config');return r.json()}).then(x=>start(x?.[0]?.content)).catch(()=>{})}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();
 })();
 </script>
