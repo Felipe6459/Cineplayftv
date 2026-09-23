@@ -62,7 +62,7 @@
     update();timer=setInterval(update,1000);
     const secs=Math.max(0,Math.min(3600,Number(c.promo_autoclose)||0));if(secs)auto=setTimeout(close,secs*1000);
   }
-  function load(){fetch(S+'/rest/v1/cineplay_site_settings?id=eq.1&select=content',{headers:{apikey:K},cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('promo config');return r.json()}).then(x=>start(x?.[0]?.content)).catch(()=>{})}
+  function load(){const ready=()=>{const c=window.cineplaySiteConfig;if(c)start(c);else fetch(S+'/rest/v1/cineplay_site_settings?id=eq.1&select=content',{headers:{apikey:K,Authorization:'Bearer '+K},cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('promo config');return r.json()}).then(x=>start(x?.[0]?.content)).catch(()=>{})};if(window.cineplaySiteConfig)ready();else window.addEventListener('cineplay-config-loaded',e=>start(e.detail),{once:true});setTimeout(ready,1500)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();
 })();
 </script>
