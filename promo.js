@@ -1,0 +1,23 @@
+(()=>{try{
+const c=window.cineplaySiteConfig;if(!c||String(c.promo_active).toLowerCase()!=='true')return;
+if(document.getElementById('cinePromoOverlay'))return;
+const start=c.promo_start?new Date(c.promo_start):null,end=c.promo_end?new Date(c.promo_end):null,now=new Date();
+if((start&&!isNaN(start)&&now<start)||(end&&!isNaN(end)&&now>end))return;
+let price=String(c.promo_price??'').replace(/\./g,'').replace(',','.');price=Number(price);if(!Number.isFinite(price))return;
+const old=document.getElementById('cinePromoOverlay');if(old)old.remove();
+const style=document.createElement('style');style.id='cinePromoStyle';style.textContent='#cinePromoOverlay{position:fixed;inset:0;z-index:2147483647;background:rgba(8,5,18,.82);display:flex;align-items:center;justify-content:center;padding:20px;animation:cpoIn .22s ease}@keyframes cpoIn{from{opacity:0}to{opacity:1}}#cinePromoCard{position:relative;width:min(440px,100%);background:linear-gradient(145deg,#21103a,#10091c);border:1px solid rgba(190,130,255,.5);border-radius:22px;padding:28px 22px;text-align:center;color:#fff;box-shadow:0 20px 80px rgba(0,0,0,.55);font-family:Arial,sans-serif}#cinePromoClose{position:absolute;right:12px;top:10px;border:0;background:transparent;color:#fff;font-size:28px;cursor:pointer}#cinePromoTitle{font-size:25px;font-weight:800;margin:4px 25px 10px}#cinePromoText{font-size:15px;opacity:.9;margin:0 0 18px}#cinePromoPrice{font-size:42px;font-weight:900;margin:8px 0}#cinePromoOld{opacity:.65;text-decoration:line-through;font-size:15px}#cinePromoCountdown{font-size:14px;font-weight:700;margin:15px 0}#cinePromoBtn{display:inline-block;background:#9b5cff;color:#fff;text-decoration:none;padding:13px 20px;border-radius:12px;font-weight:800}.cinePromoPulse{animation:cpoPulse 1.2s infinite}@keyframes cpoPulse{50%{transform:scale(1.025)}}';document.head.appendChild(style);
+const overlay=document.createElement('div');overlay.id='cinePromoOverlay';const card=document.createElement('div');card.id='cinePromoCard';const close=document.createElement('button');close.id='cinePromoClose';close.type='button';close.setAttribute('aria-label','Fechar');close.textContent='×';
+const title=document.createElement('div');title.id='cinePromoTitle';title.textContent=c.promo_title||'🔥 Oferta por tempo limitado';
+const txt=document.createElement('div');txt.id='cinePromoText';txt.textContent=c.promo_text||'Aproveite antes que termine!';
+const oldKey=(String(c.promo_period||'monthly').toLowerCase()==='annual')?'annual_'+(c.promo_screens||1):'monthly_'+(c.promo_screens||1);
+let base=Number(String(c[oldKey]??'').replace(',','.'));if(!Number.isFinite(base))base=0;
+const period=String(c.promo_period||'monthly').toLowerCase();const label=period==='annual'?'ano':period==='six_months'?'6 meses':period==='three_months'?'3 meses':'mês';
+const priceEl=document.createElement('div');priceEl.id='cinePromoPrice';priceEl.textContent=price.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' / '+label;
+const oldEl=document.createElement('div');oldEl.id='cinePromoOld';if(base>price)oldEl.textContent='De '+base.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const count=document.createElement('div');count.id='cinePromoCountdown';
+const wa=(c.whatsapp||'5582996062108').replace(/\D/g,'');const btn=document.createElement('a');btn.id='cinePromoBtn';btn.href='https://wa.me/'+wa+'?text='+encodeURIComponent('Quero aproveitar a promoção do Cineplay');btn.target='_blank';btn.rel='noopener';btn.textContent='QUERO APROVEITAR';
+card.append(close,title,txt,oldEl,priceEl,count,btn);overlay.appendChild(card);document.body.appendChild(overlay);
+const closeFn=()=>{if(window.cinePromoTimer)clearInterval(window.cinePromoTimer);if(window.cinePromoAuto)clearTimeout(window.cinePromoAuto);overlay.remove();style.remove()};close.onclick=closeFn;overlay.addEventListener('click',e=>{if(e.target===overlay)closeFn()});
+const tick=()=>{if(!end||isNaN(end)){count.textContent='Oferta disponível agora';return}const ms=end-new Date();if(ms<=0){closeFn();return}const d=Math.floor(ms/86400000),h=Math.floor(ms%86400000/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);count.textContent='⏳ Termina em '+(d?d+'d ':'')+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');};tick();window.cinePromoTimer=setInterval(tick,1000);
+const secs=Math.max(0,Math.min(3600,Number(c.promo_autoclose)||0));if(secs)window.cinePromoAuto=setTimeout(closeFn,secs*1000);
+}catch(e){console.warn('Promoção indisponível',e)}})();
